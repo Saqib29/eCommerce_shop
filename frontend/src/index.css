@@ -9,3 +9,17 @@ h3{
 .rating span {
     margin: 0.1rem
 }
+
+.image-zoom-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+.image-zoom-container img {
+    transition: transform 0.3s ease;
+  }
+  
+.image-zoom-container:hover img {
+    transform: scale(1.2); /* Adjust the scale value to control the zoom level */
+  }
+  
