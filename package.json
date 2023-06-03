@@ -4,11 +4,18 @@
   "description": "MEARN Shopping App",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Saqib Aminul",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.1.0",
+    "nodemon": "^2.0.22"
   }
 }
