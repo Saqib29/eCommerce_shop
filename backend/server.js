@@ -1,28 +1,21 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
-import products from './data/products.js'
 import connectDB from './config/db.js'
+import productRoutes from './routes/productRouter.js'
+const app = express()
 
+// sensitive data hide configuration
 dotenv.config()
-
+// database connection
 connectDB()
 
-const app = express()
+// middlewares
+app.use('/api/products', productRoutes)
+
 
 app.get('/', (req, res) => {
     res.send('API is running...')
-})
-
-app.get('/api/products', (req, res) => {
-    res.json(products)
-})
-
-app.get('/api/product/:id', (req, res) => {
-
-    const product = products.find(p => p._id === req.params.id)
-
-    res.json(product)
 })
 
 
