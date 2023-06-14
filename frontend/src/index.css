@@ -6,6 +6,16 @@ h3{
     padding: 1rem 0;
 }
 
+h1{
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+h2{
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
 .rating span {
     margin: 0.1rem
 }
@@ -23,3 +33,32 @@ h3{
     transform: scale(1.2); /* Adjust the scale value to control the zoom level */
   }
   
+.link-no-underline {
+  text-decoration: none;
+}
+  
+.custom-select-control {
+  background-color: #272B30;
+  color: #fff;
+  font-size: 1.0rem;
+  padding: 0.3rem;
+  appearance: none;
+  border: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20d%3D%22M1%201L6%206%2011%201%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  background-position: right calc(0.39em + 7px) center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  padding-right: 15px;
+}
+
+.custom-button {
+  background-color: #343a40;
+  color: #f02c2c;
+  font-size: 15px;
+  padding: 5px;
+  border: none;
+}
+
+.custom-button i {
+  font-size: 16px;
+}

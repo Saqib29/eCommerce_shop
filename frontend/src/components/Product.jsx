@@ -13,8 +13,8 @@ const Product = ({ product }) => {
 
         <Card.Body>
           <Link
+          className='link-no-underline'
             to={`/product/${product._id}`}
-            style={{ textDecoration: 'none' }}
           >
             <Card.Title as="div">
               <strong>{product.name}</strong>

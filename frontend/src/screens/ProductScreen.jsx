@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions';
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import CustomSelectForm from '../components/CustomSelectForm'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -20,6 +21,10 @@ const ProductScreen = ({ history, match }) => {
   useEffect(() => {
     dispatch(listProductDetails(params.id));
   }, [dispatch, params]);
+
+  const handleQtyChange = (e) => {
+    setQty(e.target.value);
+  };
 
   const addToCardHandler = () => {
     navigate(`/cart/${params.id}?qty=${qty}`)
@@ -84,27 +89,7 @@ const ProductScreen = ({ history, match }) => {
                     <Row>
                       <Col>Qunatity</Col>
                       <Col>
-                        <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}
-                        
-                          style={{
-                            backgroundColor: '#272B30',
-                            color: '#fff',
-                            fontSize: '0.8rem',
-                            padding: '0.3rem',
-                            appearance: 'none',
-                            border: '#141619',
-                            backgroundImage: 'url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20d%3D%22M1%201L6%206%2011%201%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E")',
-                            backgroundPosition: `right calc(0.39em + 7px) center`,
-                            backgroundRepeat: 'no-repeat',
-                            // backgroundPosition: 'right center',
-                            backgroundSize: '12px',
-                            paddingRight: '15px',
-                          }}
-                        >
-                          {[...Array(product.countInStock).keys()].map((x) => (
-                            <option key={x + 1} value={x + 1}> { x + 1 } </option>
-                          ))}
-                        </Form.Control>
+                        <CustomSelectForm qty={qty} onChange={handleQtyChange} countInStock={product.countInStock} />
                       </Col>
                     </Row>
                   </ListGroup.Item>
