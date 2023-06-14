@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Row, Col, ListGroup, Image, Button, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { addToCart } from '../actions/cartActions'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 import Message from '../components/Message'
 import CustomSelectForm from '../components/CustomSelectForm'
 
@@ -27,7 +27,7 @@ const CardScreen = () => {
     }, [dispatch, productId, qty])
     
     const removeFromCartHandler = (id) => {
-        console.log('remove')
+        dispatch(removeFromCart(id))
     }
 
     const checkoutHandler = () => {
